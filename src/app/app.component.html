@@ -11,32 +11,34 @@
   <h1 class="text-2xl font-bold">ELSE IF | Control Flow</h1>
   <br>
 
-  <button (click)="handleChangeColor(1)" class="border p-1 bg-gray-200 cursor-pointer active:bg-gray-400">
+  <button (click)="handleChangeColor('red')" class="border p-1 bg-gray-200 cursor-pointer active:bg-gray-400">
     Red
   </button>
-  <button (click)="handleChangeColor(2)" class="border p-1 bg-gray-200 cursor-pointer active:bg-gray-400">
+  <button (click)="handleChangeColor('green')" class="border p-1 bg-gray-200 cursor-pointer active:bg-gray-400">
     Green
   </button>
-  <button (click)="handleChangeColor(3)" class="border p-1 bg-gray-200 cursor-pointer active:bg-gray-400">
+  <button (click)="handleChangeColor('yellow')" class="border p-1 bg-gray-200 cursor-pointer active:bg-gray-400">
     Yellow
   </button>
-  <button (click)="handleChangeColor(0)" class="border p-1 bg-gray-200 cursor-pointer active:bg-gray-400">
+  <button (click)="handleChangeColor('')" class="border p-1 bg-gray-200 cursor-pointer active:bg-gray-400">
     Other
   </button>
   <input type="text" (input)="handleInput($event)" class="border">
   <br>
 
-  @if(color === 1){
-    <div class="w-[200px] h-[200px] bg-red-700"></div>
-  }
-  @else if (color === 2) {
-    <div class="w-[200px] h-[200px] bg-green-700"></div>
-  }
-  @else if (color === 3) {
-    <div class="w-[200px] h-[200px] bg-yellow-700"></div>
-  }
-  @else {
-    <div class="w-[200px] h-[200px] bg-black"></div>
+  @switch (color) {
+    @case ('red') {
+        <div class="w-[200px] h-[200px] bg-red-700"></div> 
+    }
+    @case ('green') {
+        <div class="w-[200px] h-[200px] bg-green-700"></div> 
+    }
+    @case ('yellow') {
+        <div class="w-[200px] h-[200px] bg-yellow-700"></div> 
+    }
+    @default {
+        <div class="w-[200px] h-[200px] bg-black"></div>
+    }
   }
 </body>
 

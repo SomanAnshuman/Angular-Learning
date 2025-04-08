@@ -9,12 +9,12 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  color = 1;
+  color = '';
 
-  handleChangeColor(val:number){
+  handleChangeColor(val:string){
     this.color = val;
   }
   handleInput(event:Event){
-    this.color = parseInt((event.target as HTMLInputElement).value);
+    this.color = (event.target as HTMLInputElement).value;
   }
 }
