@@ -9,16 +9,12 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  handleClickEvent() {
-    console.log('Function called by click');
-    this.otherFunction();
-  }
-
-  otherFunction() {
-    console.log('other function');
-  }
-
-  sum(a: number, b: number) {
-    console.log(a + b);
+  handleEvent(event: Event) {
+    console.log('function called', event.type);
+    // console.log("function called", event);
+    // console.log("function called", (event.target as Element).classList);
+    
+    if (event.type === 'input')
+      console.log('value', (event.target as HTMLInputElement).value);
   }
 }

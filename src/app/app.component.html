@@ -7,21 +7,37 @@
 <!-- * * * * * * * to get started with your project! * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
-<h1>Function call on Button click</h1>
-<button
-  (click)="handleClickEvent()"
-  class="border p-1 bg-gray-200 cursor-pointer active:bg-gray-400"
->
-  Click Me
-</button>
-<hr class="my-1" />
+<body class="m-2">
+  <h1>Events in Angular</h1>
+  <button
+    name="btn"
+    (click)="handleEvent($event)"
+    class="border p-1 bg-gray-200 cursor-pointer active:bg-gray-400"
+  >
+    Click Event
+  </button>
 
-<button
-  (click)="sum(10, 20)"
-  class="border p-1 bg-gray-200 cursor-pointer active:bg-gray-400"
->
-  Sum it
-</button>
+  <br />
+  <br />
+  <div
+    (mouseenter)="handleEvent($event)"
+    class="bg-green-800 w-[100px] h-[100px]"
+  ></div>
+  <div
+    (mouseleave)="handleEvent($event)"
+    class="bg-blue-800 w-[100px] h-[100px]"
+  ></div>
+
+  <br />
+  <br />
+  <input
+    (focus)="handleEvent($event)"
+    (blur)="handleEvent($event)"
+    (input)="handleEvent($event)"
+    type="text"
+    class="border"
+  />
+</body>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
