@@ -9,16 +9,12 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  display = true;
-  x = 20;
+  color = 1;
 
-  hide(){
-    this.display = false;
+  handleChangeColor(val:number){
+    this.color = val;
   }
-  show(){
-    this.display = true;
-  }
-  toggle(){
-    this.display = !this.display;
+  handleInput(event:Event){
+    this.color = parseInt((event.target as HTMLInputElement).value);
   }
 }

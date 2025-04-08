@@ -8,37 +8,35 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
 <body class="m-2">
-  <h1 class="text-2xl font-bold">IF ELSE | Control Flow</h1>
+  <h1 class="text-2xl font-bold">ELSE IF | Control Flow</h1>
+  <br>
 
-  @if(x > 10){
-  <div class="w-[200px] h-[200px] bg-red-700"></div>
+  <button (click)="handleChangeColor(1)" class="border p-1 bg-gray-200 cursor-pointer active:bg-gray-400">
+    Red
+  </button>
+  <button (click)="handleChangeColor(2)" class="border p-1 bg-gray-200 cursor-pointer active:bg-gray-400">
+    Green
+  </button>
+  <button (click)="handleChangeColor(3)" class="border p-1 bg-gray-200 cursor-pointer active:bg-gray-400">
+    Yellow
+  </button>
+  <button (click)="handleChangeColor(0)" class="border p-1 bg-gray-200 cursor-pointer active:bg-gray-400">
+    Other
+  </button>
+  <input type="text" (input)="handleInput($event)" class="border">
+  <br>
+
+  @if(color === 1){
+    <div class="w-[200px] h-[200px] bg-red-700"></div>
   }
-  <br />
-
-  <button
-    (click)="hide()"
-    class="border p-1 bg-gray-200 cursor-pointer active:bg-gray-400"
-  >
-    Hide div
-  </button>
-  <button
-    (click)="show()"
-    class="border p-1 bg-gray-200 cursor-pointer active:bg-gray-400"
-  >
-    Show div
-  </button>
-  <button
-    (click)="toggle()"
-    class="border p-1 bg-gray-200 cursor-pointer active:bg-gray-400"
-  >
-    {{display ? 'Toggle to HIDE' : 'Toggle to SHOW'}}
-  </button>
-
-  @if(display){
+  @else if (color === 2) {
     <div class="w-[200px] h-[200px] bg-green-700"></div>
-  } 
+  }
+  @else if (color === 3) {
+    <div class="w-[200px] h-[200px] bg-yellow-700"></div>
+  }
   @else {
-    <p>Div is now hidden</p>
+    <div class="w-[200px] h-[200px] bg-black"></div>
   }
 </body>
 
