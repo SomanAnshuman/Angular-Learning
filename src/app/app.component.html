@@ -7,21 +7,21 @@
 <!-- * * * * * * * to get started with your project! * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
-<input type="text" [(ngModel)]="name" class="border rounded-lg">
-<p>{{ name }}</p>
-<h1 class="">{{ 2+3 }}</h1>
-<p>{{ x+y }}</p>
-<p>{{ x==y }}</p>
-<h1 class="bg-cyan-300 hover:bg-yellow-300">hello</h1>
+<h1>Function call on Button click</h1>
+<button
+  (click)="handleClickEvent()"
+  class="border p-1 bg-gray-200 cursor-pointer active:bg-gray-400"
+>
+  Click Me
+</button>
+<hr class="my-1" />
 
-<h2 class="text-lg">{{ 'Hola'.toUpperCase() }}</h2>
-<app-login></app-login>
-<h2 class="text-lg">{{ user1 }}</h2>
-<h2 class="text-lg">{{ user1.toUpperCase() }}</h2>
-<app-login></app-login>
-
-<app-signup></app-signup>
-<app-profile></app-profile>
+<button
+  (click)="sum(10, 20)"
+  class="border p-1 bg-gray-200 cursor-pointer active:bg-gray-400"
+>
+  Sum it
+</button>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
@@ -30,6 +30,5 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
 
 <router-outlet />
