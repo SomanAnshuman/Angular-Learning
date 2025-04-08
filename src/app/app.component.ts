@@ -9,29 +9,16 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  name = '';
-  displayName = '';
-  email = '';
+  display = true;
+  x = 20;
 
-  renderName(event: Event) {
-    const name = (event.target as HTMLInputElement).value;
-    console.log(name);
-
-    this.name = name;
+  hide(){
+    this.display = false;
   }
-  getName() {
-    this.displayName = this.name;
+  show(){
+    this.display = true;
   }
-  setName() {
-    this.name = 'Sangameshwar';
-  }
-
-  getEmail(val: string) {
-    console.log(val);
-
-    this.email = val;
-  }
-  setEmail(){
-    this.email = "function@lambda.com"
+  toggle(){
+    this.display = !this.display;
   }
 }
