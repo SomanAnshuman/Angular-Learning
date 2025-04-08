@@ -8,35 +8,60 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
 <body class="m-2">
-  <h1>Events in Angular</h1>
-  <button
-    name="btn"
-    (click)="handleEvent($event)"
-    class="border p-1 bg-gray-200 cursor-pointer active:bg-gray-400"
-  >
-    Click Event
-  </button>
+  <h1 class="text-2xl font-bold">GET and SET Input Field value</h1>
 
-  <br />
-  <br />
-  <div
-    (mouseenter)="handleEvent($event)"
-    class="bg-green-800 w-[100px] h-[100px]"
-  ></div>
-  <div
-    (mouseleave)="handleEvent($event)"
-    class="bg-blue-800 w-[100px] h-[100px]"
-  ></div>
+  <h2 class="text-xl">User name is: {{ name }}</h2>
+  <h2 class="text-xl">User name is (by click): {{ displayName }}</h2>
 
-  <br />
   <br />
   <input
-    (focus)="handleEvent($event)"
-    (blur)="handleEvent($event)"
-    (input)="handleEvent($event)"
+    (input)="renderName($event)"
     type="text"
-    class="border"
+    value="{{ name }}"
+    placeholder="Enter User name"
+    class="border placeholder:text-gray-400"
   />
+  <br />
+  <br />
+  <button
+    (click)="getName()"
+    class="border p-1 bg-gray-200 cursor-pointer active:bg-gray-400"
+  >
+    Get Name
+  </button>
+  <button
+    (click)="setName()"
+    class="border p-1 bg-gray-200 cursor-pointer active:bg-gray-400"
+  >
+    Set Name
+  </button>
+
+  <hr />
+  <br />
+
+  <h2 class="text-xl">
+    Email address is: <span class="font-bold">{{ email }}</span>
+  </h2>
+  <input
+    type="text"
+    placeholder="Enter Email"
+    value="{{ email }}"
+    class="border placeholder:text-gray-400"
+    #emailField
+  />
+  <!-- here 'emailField' is a template refernce variable -->
+  <button
+    (click)="getEmail(emailField.value)"
+    class="border p-1 bg-gray-200 cursor-pointer active:bg-gray-400"
+  >
+    Get Name
+  </button>
+  <button
+    (click)="setEmail()"
+    class="border p-1 bg-gray-200 cursor-pointer active:bg-gray-400"
+  >
+    Set Name
+  </button>
 </body>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->

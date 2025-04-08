@@ -9,12 +9,29 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  handleEvent(event: Event) {
-    console.log('function called', event.type);
-    // console.log("function called", event);
-    // console.log("function called", (event.target as Element).classList);
-    
-    if (event.type === 'input')
-      console.log('value', (event.target as HTMLInputElement).value);
+  name = '';
+  displayName = '';
+  email = '';
+
+  renderName(event: Event) {
+    const name = (event.target as HTMLInputElement).value;
+    console.log(name);
+
+    this.name = name;
+  }
+  getName() {
+    this.displayName = this.name;
+  }
+  setName() {
+    this.name = 'Sangameshwar';
+  }
+
+  getEmail(val: string) {
+    console.log(val);
+
+    this.email = val;
+  }
+  setEmail(){
+    this.email = "function@lambda.com"
   }
 }
