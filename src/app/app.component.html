@@ -11,34 +11,13 @@
   <h1 class="text-2xl font-bold">FOR Loop in template file</h1>
   <br />
 
-  @for (user of users; track user; let i = $index; let f = $first; let l = $last) {
-    <p>is it first = {{ f }}</p>
-
-    @if(f || l){
-      <p class="bg-red-500">this is our {{ i }} user with name: {{ user }}</p>
-    } @else {
-      <p>this is our {{ i }} user with name: {{ user }}</p>
-    }
-
-    @if($even){
-      <p class="bg-yellow-300">this is our {{ i }} user with name: {{ user }}</p>
-    }
-    @if($odd){
-      <p class="bg-green-300">this is our {{ i }} user with name: {{ user }}</p>
-    }
-    
-    <p>is it last = {{ l }}</p>
-    <p>total count in loop = {{ $count }}</p>
-    <br />
-  }
-  <hr /><br>
-
-  @for (item of students; track $index) {
-    <p>this is our {{ $index }} user with name: {{ item }}</p>
-  }
-  @empty(){
-    <b>No record found of students</b>
-  }
+  <input
+    type="text"
+    [(ngModel)]="name"
+    placeholder="Enter name here"
+    class="border placeholder:text-zinc-300"
+  />
+  <p>{{ name }}</p>
 </body>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->

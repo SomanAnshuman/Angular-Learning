@@ -9,6 +9,5 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  users = ['Anil', 'Vivek', 'Sidhu', 'Aman', 'Peter', 'Tony', 'Bruce', 'Smith', 'Soman', 'Alok'];
-  students = [];
+  name = 's'
 }
