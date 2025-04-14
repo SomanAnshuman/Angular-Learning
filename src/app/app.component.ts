@@ -9,15 +9,6 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  users = ['Anil', 'Vivek', 'Sidhu', 'Aman'];
-  students = [
-    { name: 'Anil', age: 29, email: 'anil@test.com' },
-    { name: 'Tony', age: 31, email: 'tony@test.com' },
-    { name: 'Peter', age: 92, email: 'peter@test.com' },
-    { name: 'Bruce', age: 25, email: 'bruce@test.com' },
-  ];
-
-  getName(val:string){
-    console.log(val);
-  }
+  users = ['Anil', 'Vivek', 'Sidhu', 'Aman', 'Peter', 'Tony', 'Bruce', 'Smith', 'Soman', 'Alok'];
+  students = [];
 }

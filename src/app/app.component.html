@@ -11,21 +11,33 @@
   <h1 class="text-2xl font-bold">FOR Loop in template file</h1>
   <br />
 
-  @for (user of users; track user) {
-  <p>{{ user }}</p>
-  }
-  <hr />
+  @for (user of users; track user; let i = $index; let f = $first; let l = $last) {
+    <p>is it first = {{ f }}</p>
 
-  @for (student of students; track student.email; let id = $index) {
-    <b>{{ id+1 }}</b>
-    <p>{{ student.name }} {{ student.age }} {{ student.email }}</p>
-    <button
-        (click)="getName(student.name)"
-        class="border p-1 bg-gray-200 cursor-pointer active:bg-gray-400"
-    >
-        Get Name
-    </button>
-    <br /><br>
+    @if(f || l){
+      <p class="bg-red-500">this is our {{ i }} user with name: {{ user }}</p>
+    } @else {
+      <p>this is our {{ i }} user with name: {{ user }}</p>
+    }
+
+    @if($even){
+      <p class="bg-yellow-300">this is our {{ i }} user with name: {{ user }}</p>
+    }
+    @if($odd){
+      <p class="bg-green-300">this is our {{ i }} user with name: {{ user }}</p>
+    }
+    
+    <p>is it last = {{ l }}</p>
+    <p>total count in loop = {{ $count }}</p>
+    <br />
+  }
+  <hr /><br>
+
+  @for (item of students; track $index) {
+    <p>this is our {{ $index }} user with name: {{ item }}</p>
+  }
+  @empty(){
+    <b>No record found of students</b>
   }
 </body>
 
