@@ -1,0 +1,47 @@
+<nav class="flex justify-between mx-2.5">
+  <h2 class="text-xl font-bold">Logo</h2>
+
+  <ul class="flex justify-between w-[300px]">
+    <li>
+      <a
+        routerLink="/"
+        routerLinkActive="border bg-yellow-400"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="text-purple-700"
+        >Home
+      </a>
+    </li>
+    <li>
+      <a
+        routerLink="/login"
+        routerLinkActive="border bg-yellow-400"
+        class="text-purple-700"
+        >Login
+      </a>
+    </li>
+    <li>
+      <a
+        routerLink="/about"
+        routerLinkActive="border bg-yellow-400"
+        class="text-purple-700"
+        >About
+      </a>
+    </li>
+    <li>
+      <a
+        routerLink="/contact"
+        routerLinkActive="border bg-yellow-400"
+        class="text-purple-700"
+        >Contact
+      </a>
+    </li>
+    <li>
+      <a
+        routerLink="/signup"
+        routerLinkActive="border bg-yellow-400"
+        class="text-purple-700"
+        >Signup
+      </a>
+    </li>
+  </ul>
+</nav>
