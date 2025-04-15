@@ -1,17 +1,16 @@
 import { Component } from '@angular/core';
-import { NgIf } from '@angular/common';
+import { NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [NgIf],
+  imports: [NgSwitch, NgSwitchCase, NgSwitchDefault],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  login = true;
+  color = "black";
 
-  block = 0;
-  updateBlock(){
-    this.block++;
+  changeColor(color:string){
+    this.color = color;
   }
 }
