@@ -8,59 +8,25 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
 <body class="m-2">
-  <h1 class="text-2xl font-bold">*ngSwitch Directives in Angular</h1>
+  <h1 class="text-2xl font-bold">Basic Routing in Angular</h1>
   <br />
 
-  <button
-    (click)="changeColor('red')"
-    class="border p-1 bg-gray-200 cursor-pointer active:bg-gray-400"
-  >
-    Red
-  </button>
-  <button
-    (click)="changeColor('yellow')"
-    class="border p-1 bg-gray-200 cursor-pointer active:bg-gray-400"
-  >
-    Yellow
-  </button>
-  <button
-    (click)="changeColor('blue')"
-    class="border p-1 bg-gray-200 cursor-pointer active:bg-gray-400"
-  >
-    Blue
-  </button>
-  <button
-    (click)="changeColor('green')"
-    class="border p-1 bg-gray-200 cursor-pointer active:bg-gray-400"
-  >
-    Green
-  </button>
-  <button
-    (click)="changeColor('pink')"
-    class="border p-1 bg-gray-200 cursor-pointer active:bg-gray-400"
-  >
-    Pink
-  </button>
-  <br />
+  <ul>
+    <li>
+      <a routerLink="/login" class="underline text-purple-700">Login</a>
+    </li>
+    <li>
+      <a routerLink="/about" class="underline text-purple-700">About</a>
+    </li>
+    <li>
+      <a routerLink="/contact" class="underline text-purple-700">Contact</a>
+    </li>
+    <li>
+      <a routerLink="/signup" class="underline text-purple-700">Signup</a>
+    </li>
+  </ul>
 
-  <div [ngSwitch]="color">
-    <h2 *ngSwitchCase="'red'" class="text-xl font-bold bg-red-500">
-      Red Colour
-    </h2>
-    <h2 *ngSwitchCase="'yellow'" class="text-xl font-bold bg-yellow-500">
-      Yellow Colour
-    </h2>
-    <h2 *ngSwitchCase="'blue'" class="text-xl font-bold bg-blue-500">
-      Blue Colour
-    </h2>
-    <h2 *ngSwitchCase="'green'" class="text-xl font-bold bg-green-500">
-      Green Colour
-    </h2>
-    <h2 *ngSwitchCase="'pink'" class="text-xl font-bold bg-pink-500">
-      Pink Colour
-    </h2>
-    <h2 *ngSwitchDefault="" class="text-xl font-bold">No colour match</h2>
-  </div>
+  <router-outlet />
 </body>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
