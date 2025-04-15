@@ -5,6 +5,7 @@ import { ContactComponent } from './contact/contact.component';
 import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ProfileComponent } from './profile/profile.component';
 
 export const routes: Routes = [
     {path: '', component: HomeComponent},
@@ -12,5 +13,6 @@ export const routes: Routes = [
     {path: 'login', component: LoginComponent},
     {path: 'contact', component: ContactComponent},
     {path: 'signup', component: SignupComponent},
-    {path: '**', component: PageNotFoundComponent}, //wild card routing
+    {path: 'profile', component: ProfileComponent, data: {name: 'Anthony Alba'}},
+    {path: '**', component: PageNotFoundComponent}, //wild card routing (should be in last)
 ];
