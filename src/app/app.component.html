@@ -7,58 +7,49 @@
 <!-- * * * * * * * to get started with your project! * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <body class="m-2">
-  <h1 class="text-2xl font-bold">Form Grouping in Reactive forms</h1>
+  <h1 class="text-2xl font-bold">Template driven forms</h1>
   <br />
 
-  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  <form #userForm="ngForm" (ngSubmit)="addDetails(userForm.value)">
     <input
       type="text"
       placeholder="Enter name"
+      name="name"
       class="border placeholder:text-gray-500"
-      formControlName="name"
+      ngModel
     />
-    <span *ngIf="name?.hasError('required')">Name is required</span>
-    <span
-      *ngIf="name?.invalid && (name?.dirty || name?.touched)"
-      class="text-red-600"
-    >
-      Please enter valid name
-    </span>
     <br /><br />
+
     <input
-      type="text"
+      type="password"
       placeholder="Enter password"
+      name="password"
       class="border placeholder:text-gray-500"
-      formControlName="password"
+      ngModel
     />
-    <span *ngIf="password?.hasError('required')">Password is required</span>
-    <span
-      *ngIf="password?.invalid && (password?.dirty || password?.touched)"
-      class="text-red-600"
-    >
-      Please enter valid password
-    </span>
     <br /><br />
-    <input
-      type="text"
-      placeholder="Enter email"
-      class="border placeholder:text-gray-500"
-      formControlName="email"
-    />
-    <span *ngIf="email?.hasError('required')">Email is required</span>
-    <span
-      *ngIf="email?.invalid && (email?.dirty || email?.touched)"
-      class="text-red-600"
-    >
-      Please enter valid email
-    </span>
+
+    <select name="gender" class="border cursor-pointer" ngModel>
+      <option value="">Select gender</option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+    </select>
     <br /><br />
+
+    <input type="range" name="range" min="0" max="20" ngModel />
+    <br /><br />
+
     <button
       class="border px-1 pb-1 bg-gray-200 cursor-pointer active:bg-gray-400"
     >
-      Submit
+      Add User
     </button>
   </form>
+
+  <p>{{ userDetails?.name }}</p>
+  <p>{{ userDetails?.password }}</p>
+  <p>{{ userDetails?.gender }}</p>
+  <p>{{ userDetails?.range }}</p>
 </body>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
