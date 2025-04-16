@@ -7,10 +7,44 @@
 <!-- * * * * * * * to get started with your project! * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <body class="m-2">
-  <app-header></app-header>
+  <h1 class="text-2xl font-bold">Basics of Reactive forms</h1>
   <br />
 
-  <router-outlet />
+  <form action="">
+    <input
+      type="text"
+      placeholder="Enter name"
+      class="border placeholder:text-gray-500"
+      [formControl]="name"
+    />
+    <br /><br />
+    <input
+      type="text"
+      placeholder="Enter password"
+      class="border placeholder:text-gray-500"
+      [formControl]="password"
+    />
+    <br /><br />
+    <button
+      type="button"
+      (click)="displayValue(); $event.preventDefault()"
+      class="border px-1 pb-1 bg-gray-200 cursor-pointer active:bg-gray-400"
+    >
+      <!-- type=button or preventDefault both independently works -->
+      <!-- use any of them to prevent form submission on click -->
+      Login
+    </button>
+    <button
+      type="button"
+      (click)="setValues()"
+      class="border px-1 pb-1 bg-gray-200 cursor-pointer active:bg-gray-400"
+    >
+      Set Field values
+    </button>
+
+    <p>{{ name.value }}</p>
+    <p>{{ password.value }}</p>
+  </form>
 </body>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
