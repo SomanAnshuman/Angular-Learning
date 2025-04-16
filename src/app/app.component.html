@@ -7,43 +7,47 @@
 <!-- * * * * * * * to get started with your project! * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <body class="m-2">
-  <h1 class="text-2xl font-bold">Basics of Reactive forms</h1>
+  <h1 class="text-2xl font-bold">Form Grouping in Reactive forms</h1>
   <br />
 
-  <form action="">
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
     <input
       type="text"
       placeholder="Enter name"
       class="border placeholder:text-gray-500"
-      [formControl]="name"
+      formControlName="name"
     />
     <br /><br />
     <input
       type="text"
       placeholder="Enter password"
       class="border placeholder:text-gray-500"
-      [formControl]="password"
+      formControlName="password"
+    />
+    <br /><br />
+    <input
+      type="text"
+      placeholder="Enter email"
+      class="border placeholder:text-gray-500"
+      formControlName="email"
     />
     <br /><br />
     <button
-      type="button"
-      (click)="displayValue(); $event.preventDefault()"
       class="border px-1 pb-1 bg-gray-200 cursor-pointer active:bg-gray-400"
     >
-      <!-- type=button or preventDefault both independently works -->
-      <!-- use any of them to prevent form submission on click -->
-      Login
+      Submit
     </button>
     <button
       type="button"
-      (click)="setValues()"
+      (click)="setValue()"
       class="border px-1 pb-1 bg-gray-200 cursor-pointer active:bg-gray-400"
     >
-      Set Field values
+      Set Value
     </button>
 
-    <p>{{ name.value }}</p>
-    <p>{{ password.value }}</p>
+    <p>{{ profileForm.value.name }}</p>
+    <p>{{ profileForm.value.password }}</p>
+    <p>{{ profileForm.value.email }}</p>
   </form>
 </body>
 

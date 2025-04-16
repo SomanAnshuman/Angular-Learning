@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -8,15 +8,22 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  name = new FormControl('soman');
-  password = new FormControl('123');
+  profileForm = new FormGroup({
+    name: new FormControl('Tony'),
+    password: new FormControl('3000'),
+    email: new FormControl(),
+  });
 
-  displayValue() {
-    console.log(this.name.value, this.password.value);
+  onSubmit() {
+    console.log('Submit func called');
+    console.log(this.profileForm.value);
   }
 
-  setValues() {
-    this.name.setValue('Peter');
-    this.password.setValue('3000');
+  setValue(){
+    this.profileForm.setValue({
+      name: 'peter',
+      password: '2010',
+      email: 'may@ben.com',
+    })
   }
 }
