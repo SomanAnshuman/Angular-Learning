@@ -17,7 +17,12 @@
       name="name"
       class="border placeholder:text-gray-500"
       ngModel
+      required
+      #name="ngModel"
     />
+    <span *ngIf="name.invalid && name.touched" class="text-red-600"
+      >Name is required</span
+    >
     <br /><br />
 
     <input
@@ -26,20 +31,67 @@
       name="password"
       class="border placeholder:text-gray-500"
       ngModel
+      required
+      minlength="5"
+      maxlength="10"
+      #password="ngModel"
     />
+    <span *ngIf="password.invalid && password.touched" class="text-red-600">
+      Please enter valid password
+    </span>
     <br /><br />
 
-    <select name="gender" class="border cursor-pointer" ngModel>
+    <input
+      type="email"
+      placeholder="Enter email"
+      name="email"
+      class="border placeholder:text-gray-500"
+      ngModel
+      required
+      email
+      #email="ngModel"
+    />
+    <span *ngIf="email.invalid && email.touched" class="text-red-600">
+      Please enter valid email
+    </span>
+    <br /><br />
+
+    <input
+      type="text"
+      placeholder="Enter address"
+      name="address"
+      class="border placeholder:text-gray-500"
+      ngModel
+      required
+      pattern="[a-zA-Z0-9\s]+"
+      #address="ngModel"
+    />
+    <span *ngIf="address.invalid && address.touched" class="text-red-600">
+      Please enter valid address
+    </span>
+    <br /><br />
+
+    <select
+      name="gender"
+      class="border cursor-pointer"
+      ngModel
+      required
+      #gender="ngModel"
+    >
       <option value="">Select gender</option>
       <option value="male">Male</option>
       <option value="female">Female</option>
     </select>
+    <span *ngIf="gender.invalid && gender.touched" class="text-red-600">
+      Please select gender
+    </span>
     <br /><br />
 
     <input type="range" name="range" min="0" max="20" ngModel />
     <br /><br />
 
     <button
+      [disabled]="userForm.invalid"
       class="border px-1 pb-1 bg-gray-200 cursor-pointer active:bg-gray-400"
     >
       Add User
