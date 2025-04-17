@@ -7,22 +7,12 @@
 <!-- * * * * * * * to get started with your project! * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <body class="m-2">
-  <h1 class="text-2xl font-bold">Pass data to Child component</h1>
+  <h1 class="text-2xl font-bold">Reuse component</h1>
   <br />
 
-  <app-user user="{{ userName }}" city="Gurugram"></app-user>
-  <br />
-
-  <select
-    #selectedUser
-    (change)="onUserChange(selectedUser.value)"
-    class="border rounded-md cursor-pointer"
-  >
-    <option value="soman">Soman</option>
-    <option value="vivek">Vivek</option>
-    <option value="vaibhav">Vaibhav</option>
-    <option value="kshitiz">Kshitiz</option>
-  </select>
+  @for (user of users; track user) {
+    <app-user user="{{ user }}"></app-user>
+  }
 </body>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->

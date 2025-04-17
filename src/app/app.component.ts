@@ -8,9 +8,5 @@ import { UserComponent } from './user/user.component';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  userName = 'Bruce';
-
-  onUserChange(user: string){
-    this.userName = user;
-  }
+  users = ['Soman', 'Peter', 'Tony', 'Bruce', 'Alok'];
 }
