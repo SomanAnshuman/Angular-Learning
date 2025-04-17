@@ -7,101 +7,22 @@
 <!-- * * * * * * * to get started with your project! * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <body class="m-2">
-  <h1 class="text-2xl font-bold">Template driven forms</h1>
+  <h1 class="text-2xl font-bold">Pass data to Child component</h1>
   <br />
 
-  <form #userForm="ngForm" (ngSubmit)="addDetails(userForm.value)">
-    <input
-      type="text"
-      placeholder="Enter name"
-      name="name"
-      class="border placeholder:text-gray-500"
-      ngModel
-      required
-      #name="ngModel"
-    />
-    <span *ngIf="name.invalid && name.touched" class="text-red-600"
-      >Name is required</span
-    >
-    <br /><br />
+  <app-user user="{{ userName }}" city="Gurugram"></app-user>
+  <br />
 
-    <input
-      type="password"
-      placeholder="Enter password"
-      name="password"
-      class="border placeholder:text-gray-500"
-      ngModel
-      required
-      minlength="5"
-      maxlength="10"
-      #password="ngModel"
-    />
-    <span *ngIf="password.invalid && password.touched" class="text-red-600">
-      Please enter valid password
-    </span>
-    <br /><br />
-
-    <input
-      type="email"
-      placeholder="Enter email"
-      name="email"
-      class="border placeholder:text-gray-500"
-      ngModel
-      required
-      email
-      #email="ngModel"
-    />
-    <span *ngIf="email.invalid && email.touched" class="text-red-600">
-      Please enter valid email
-    </span>
-    <br /><br />
-
-    <input
-      type="text"
-      placeholder="Enter address"
-      name="address"
-      class="border placeholder:text-gray-500"
-      ngModel
-      required
-      pattern="[a-zA-Z0-9\s]+"
-      #address="ngModel"
-    />
-    <span *ngIf="address.invalid && address.touched" class="text-red-600">
-      Please enter valid address
-    </span>
-    <br /><br />
-
-    <select
-      name="gender"
-      class="border cursor-pointer"
-      ngModel
-      required
-      #gender="ngModel"
-    >
-      <option value="">Select gender</option>
-      <option value="male">Male</option>
-      <option value="female">Female</option>
-    </select>
-    <span *ngIf="gender.invalid && gender.touched" class="text-red-600">
-      Please select gender
-    </span>
-    <br /><br />
-
-    <input type="range" name="range" min="0" max="20" ngModel />
-    <br /><br />
-
-    <button
-      [disabled]="userForm.invalid"
-      class="border px-1 pb-1 bg-gray-200 cursor-pointer active:bg-gray-400"
-    >
-      Add User
-    </button>
-  </form>
-
-  <p>{{ userDetails?.name }}</p>
-  <p>{{ userDetails?.password }}</p>
-  <p>{{ userDetails?.gender }}</p>
-  <p>{{ userDetails?.range }}</p>
+  <select
+    #selectedUser
+    (change)="onUserChange(selectedUser.value)"
+    class="border rounded-md cursor-pointer"
+  >
+    <option value="soman">Soman</option>
+    <option value="vivek">Vivek</option>
+    <option value="vaibhav">Vaibhav</option>
+    <option value="kshitiz">Kshitiz</option>
+  </select>
 </body>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
